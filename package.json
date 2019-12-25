@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/sh0aibsha1kh/oanda-api-wrapper/issues"
   },
-  "homepage": "https://github.com/sh0aibsha1kh/oanda-api-wrapper#readme"
+  "homepage": "https://github.com/sh0aibsha1kh/oanda-api-wrapper#readme",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
 }
