@@ -1,1 +1,2 @@
-const ACCOUNT = require('./endpoints/account');
+const Account = require('./endpoints/account');
+const Instrument = require('./endpoints/instrument');
