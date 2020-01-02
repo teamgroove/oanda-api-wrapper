@@ -9,7 +9,7 @@ const HEADER = {
 
 const axios = require('axios');
 
-async function getCandlestickData(instrument, parameters) {
+async function getCandlestickData(instrument, parameters = null) {
     const URL = `${BASE_URL}/${instrument}/candles${convertObjectToQuery(parameters)}`;
     try {
         const response = await axios.get(URL, HEADER);
@@ -20,10 +20,13 @@ async function getCandlestickData(instrument, parameters) {
     }
 }
 
-async function getOrderBook(instrument) {
-    const URL = `${BASE_URL}/${instrument}/orderBook`
+async function getOrderBook(instrument, time = null) {
+    let url = `${BASE_URL}/${instrument}/orderBook`;
+    if (time != null) {
+        url += `?time=${time}`;
+    }
     try {
-        const response = await axios.get(URL, HEADER);
+        const response = await axios.get(url, HEADER);
         console.log(response.data);
         return response.data;
     } catch (error) {
@@ -31,10 +34,13 @@ async function getOrderBook(instrument) {
     }
 }
 
-async function getPositionBook(instrument) {
-    const URL = `${BASE_URL}/${instrument}/positionBook`
+async function getPositionBook(instrument, time = null) {
+    let url = `${BASE_URL}/${instrument}/positionBook`;
+    if (time != null) {
+        url += `?time=${time}`;
+    }
     try {
-        const response = await axios.get(URL, HEADER);
+        const response = await axios.get(url, HEADER);
         console.log(response.data);
         return response.data;
     } catch (error) {
